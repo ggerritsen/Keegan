@@ -1,4 +1,8 @@
 @import url("http://yui.yahooapis.com/2.9.0/build/reset-fonts-grids/reset-fonts-grids.css");
+html {
+   font-size: 62.5%;
+}
+
 .disabled {
   display: none;
 }
