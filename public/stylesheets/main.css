@@ -1,3 +1,17 @@
 .disabled {
-  display: none
+  display: none;
+}
+
+#questions {
+  margin:auto;
+}
+
+table {
+  width: 80%;
+  margin: auto;
+}
+
+td {
+  width: 10px;
+  text-align: right;
 }
