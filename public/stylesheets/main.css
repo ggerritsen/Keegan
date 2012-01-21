@@ -1,6 +1,19 @@
 @import url("http://yui.yahooapis.com/2.9.0/build/reset-fonts-grids/reset-fonts-grids.css");
 html {
-   font-size: 62.5%;
+  font-family: Verdana;
+  background-color: #eee;
+  color: #444;
+  text-decoration: none;
+  word-spacing: normal;
+  text-align: left;
+  letter-spacing: 0;
+  line-height: 1.2em;
+  font-size: 1.2em;
+  border: #ccc;
+}
+
+h1 {
+  color: #5C9EBE;
 }
 
 .disabled {
@@ -11,12 +24,7 @@ html {
   margin:auto;
 }
 
-table {
-  width: 80%;
-  margin: auto;
-}
-
-td {
-  width: 10px;
-  text-align: right;
+#footer {
+  margin-top: 1em auto;
+  color: hsl(0, 100%, 50%); 
 }
