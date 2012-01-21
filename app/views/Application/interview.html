@@ -10,11 +10,26 @@
   </div>
 </div>
 <div id="video">
-  <iframe width="560" height="315" src="http://www.youtube.com/embed/SBjQ9tuuTJQ?rel=0&controls=0&disablekb=1&showinfo=0&enablejsapi=1&origin=localhost" frameborder="0" allowfullscreen></iframe>
+  You need Flash and stuff
 </div>
 
 <script type="text/javascript">
+  var params = { allowScriptAccess: "always" };
+  var atts = { id: "player" };
+  swfobject.embedSWF("http://www.youtube.com/v/SBjQ9tuuTJQ?enablejsapi=1&playerapiid=apiplayer&version=3&controls=0&disablekb=1&showinfo=0&origin=localhost", "video", "425", "356", "8", null, null, params, atts);
+</script>
+
+<script type="text/javascript">
+  var player;
+
   $('#questions').click(function() {
     $(this).find('.likert').toggleClass('disabled');
+    alert(player.getCurrentTime());
   });
+ 
+  function onYouTubePlayerReady(playerId) {
+    alert('playah ready with id ' + playerId);
+    //player = $('#player');
+    player = document.getElementById('player');
+  }
 </script>
