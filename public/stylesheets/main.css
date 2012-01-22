@@ -28,6 +28,15 @@ h1 {
   margin:auto;
 }
 
+.radio {
+  width: 19px;
+  height: 25px;
+  padding: 0 5px 0 0;
+  display: block;
+  clear: left;
+  float: left;
+}
+
 #footer {
   margin-top: 1em auto;
   color: hsl(0, 100%, 50%); 
