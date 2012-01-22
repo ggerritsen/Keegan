@@ -57,7 +57,7 @@
 </div>
 
 <br/>
-<textarea id="output" cols="80" rows="5"></textarea> 
+<textarea id="output" cols="100" rows="5"></textarea> 
 
 </body>
 </html>
@@ -86,7 +86,7 @@
     if (existingText.length == 0) {
       lineBreak = "";
     }
-    outputBox.val(existingText + lineBreak + "Proefpersoon heeft " + chosenValue + " gekozen op de schaal " + scaleName + " (" + time + ")");
+    outputBox.val(existingText + lineBreak + "Proefpersoon heeft " + chosenValue + " gekozen op de schaal " + scaleName + " (na " + time + " seconden).");
      
     var likertElement = $(this).parent('.likertscale');
     likertElement.addClass('blocked');
