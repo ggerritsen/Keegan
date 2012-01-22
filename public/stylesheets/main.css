@@ -16,6 +16,10 @@ h1 {
   color: #5C9EBE;
 }
 
+h3 {
+  font-size: 1.4em;
+}
+
 .disabled {
   display: none;
 }
