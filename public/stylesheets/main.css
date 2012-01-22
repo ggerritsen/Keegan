@@ -28,6 +28,11 @@ h1 {
   margin:auto;
 }
 
+#output {
+  text-align: left;
+  margin: auto;
+}
+
 .radio {
   width: 19px;
   height: 25px;

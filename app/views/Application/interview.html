@@ -56,6 +56,9 @@
   <!--<div id="footer"><p>Footer</p></div>-->
 </div>
 
+<br/>
+<textarea id="output" cols="80" rows="5"></textarea> 
+
 </body>
 </html>
 
@@ -73,7 +76,18 @@
   });
 
   $('.likertscale > input:radio').click(function() {
-    console.log(player.getCurrentTime());
+    var time = player.getCurrentTime();
+    var lineBreak = "\n";
+    var outputBox = $('#output');
+    var radioButton = $(this);
+    var chosenValue = radioButton.attr('value');
+    var scaleName = radioButton.attr('name');
+    var existingText = outputBox.val();
+    if (existingText.length == 0) {
+      lineBreak = "";
+    }
+    outputBox.val(existingText + lineBreak + "Proefpersoon heeft " + chosenValue + " gekozen op de schaal " + scaleName + " (" + time + ")");
+     
     var likertElement = $(this).parent('.likertscale');
     likertElement.addClass('blocked');
     $(likertElement).click(function(event) {
