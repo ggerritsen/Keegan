@@ -20,7 +20,7 @@
     </div>
     <div role="navigation" class="yui-b">
     <!-- YOUR NAVIGATION GOES HERE -->
-      <div id="questions">
+      <div class="question">
         LALALALA
         <div class="likert disabled">
           <input type="checkbox" name="test1"/>
@@ -44,9 +44,21 @@
 <script type="text/javascript">
   var player;
 
-  $('#questions').click(function() {
-    $(this).find('.likert').toggleClass('disabled');
-    alert(player.getCurrentTime());
+  $('.question').hover(function() {
+    $(this).find('.likert').removeClass('disabled');
+  });
+
+  $('.likert').click(function() {
+    console.log($(this));
+    console.log(player.getCurrentTime());
+    $(this).addClass('blocked');
+    $(this).click(function(event) {
+      event.preventDefault();
+    });
+  });
+
+  $('.blocked').click(function() {
+    console.log("click");
   });
  
   function onYouTubePlayerReady(playerId) {
