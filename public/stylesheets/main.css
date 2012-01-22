@@ -20,6 +20,10 @@ h1 {
   display: none;
 }
 
+.blocked {
+  color: #bbb;
+}
+
 #questions {
   margin:auto;
 }

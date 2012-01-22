@@ -57,22 +57,17 @@
     $(this).find('.likertscale').removeClass('disabled');
   });
 
-  $('.likert').click(function() {
-    console.log($(this));
+  $('.likertscale > input:radio').click(function() {
     console.log(player.getCurrentTime());
-    $(this).addClass('blocked');
-    $(this).click(function(event) {
+    var likertElement = $(this).parent('.likertscale');
+    likertElement.addClass('blocked');
+    $(likertElement).click(function(event) {
       event.preventDefault();
     });
   });
 
-  $('.blocked').click(function() {
-    console.log("click");
-  });
- 
   function onYouTubePlayerReady(playerId) {
     console.log('playah ready with id ' + playerId);
-    //player = $('#player');
     player = document.getElementById('player');
   }
 </script>
