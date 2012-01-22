@@ -71,9 +71,14 @@
 <script type="text/javascript">
   var player;
 
-  $('.question').hover(function() {
-    $(this).find('.likertscale').removeClass('disabled');
-  });
+  $('.question').hover(
+    function() {
+      $(this).find('.likertscale').removeClass('disabled');
+    }, 
+    function() {
+      $(this).find('.likertscale').addClass('disabled');
+    }
+  );
 
   $('.likertscale > input:radio').click(function() {
     var time = player.getCurrentTime();
@@ -88,11 +93,14 @@
     }
     outputBox.val(existingText + lineBreak + "Proefpersoon heeft " + chosenValue + " gekozen op de schaal " + scaleName + " (na " + time + " seconden).");
      
-    var likertElement = $(this).parent('.likertscale');
+    var likertElement = radioButton.parent('.likertscale');
     likertElement.addClass('blocked');
     $(likertElement).click(function(event) {
       event.preventDefault();
     });
+    likertElement.parent('.question').unbind('hover');
+    radioButton.unbind('click');
+    radioButton.siblings().unbind('click');
   });
 
   function onYouTubePlayerReady(playerId) {
