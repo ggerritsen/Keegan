@@ -21,9 +21,18 @@
     <div role="navigation" class="yui-b">
     <!-- YOUR NAVIGATION GOES HERE -->
       <div class="question">
-        LALALALA
-        <div class="likert disabled">
-          <input type="checkbox" name="test1"/>
+        Conscientieusheid
+        <div class="likertscale disabled">
+          <label>1</label>
+          <input type="radio" name="conscientiousness" value="1"/>
+          <label>2</label>
+          <input type="radio" name="conscientiousness" value="2"/>
+          <label>3</label>
+          <input type="radio" name="conscientiousness" value="3"/>
+          <label>4</label>
+          <input type="radio" name="conscientiousness" value="4"/>
+          <label>5</label>
+          <input type="radio" name="conscientiousness" value="5"/>
         </div>
       </div>
     </div>
@@ -45,7 +54,7 @@
   var player;
 
   $('.question').hover(function() {
-    $(this).find('.likert').removeClass('disabled');
+    $(this).find('.likertscale').removeClass('disabled');
   });
 
   $('.likert').click(function() {
