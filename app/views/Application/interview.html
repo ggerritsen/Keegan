@@ -38,7 +38,7 @@
           <input type="radio" name="conscientiousness" value="6" id="cons6"/>
         </div>
       </div>
-      <div class="question">
+      <div class="q-candidate question">
         <h3>Extraversie</h3>
         <div class="likertscale disabled">
           <label for="extr1">1</label>
@@ -75,12 +75,14 @@
 <script type="text/javascript">
   var player;
 
-  $('.question').hover(
+  $('.question').click(
     function() {
+      if (!playing()) {
+        return;
+      }
+      pausePlayer();
       $(this).find('.likertscale').removeClass('disabled');
-    }, 
-    function() {
-      $(this).find('.likertscale').addClass('disabled');
+      $(this).unbind('click');
     }
   );
 
@@ -102,13 +104,40 @@
     $(likertElement).click(function(event) {
       event.preventDefault();
     });
-    likertElement.parent('.question').unbind('hover');
+    
+    var questionElement = likertElement.parent('.question');
+    questionElement.unbind('click');
     radioButton.unbind('click');
     radioButton.siblings().unbind('click');
+    
+    // make next scale visible
+    questionElement.next('.q-candidate').removeClass('q-candidate');
+
+    resumePlayer();
   });
 
   function onYouTubePlayerReady(playerId) {
     console.log('playah ready with id ' + playerId);
     player = document.getElementById('player');
+  }
+
+  function pausePlayer() {
+    if (playing()) {
+      player.pauseVideo();
+    }
+  }
+  
+  function resumePlayer() {
+    if (paused()) {
+      player.playVideo();
+    }
+  }
+
+  function playing() {
+    return player.getPlayerState() === 1; // playing
+  }
+
+  function paused() {
+    return player.getPlayerState() === 2; // paused
   }
 </script>

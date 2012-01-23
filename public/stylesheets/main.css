@@ -28,7 +28,11 @@ h3 {
   color: #bbb;
 }
 
-#questions {
+.q-candidate {
+  display: none;
+}
+
+.question {
   margin:auto;
 }
 
