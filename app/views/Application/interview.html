@@ -66,16 +66,7 @@
     }
 };
 
-  $('.question').click(
-    function() {
-      if (!playing()) {
-        return;
-      }
-      pausePlayer();
-      $(this).find('.likertscale').removeClass('disabled');
-      $(this).unbind('click');
-    }
-  );
+  unfreezeAllOpenQuestions();
 
   $('.likertscale > input:radio').click(function() {
     var time = player.getCurrentTime();
@@ -97,15 +88,36 @@
     });
     
     var questionElement = likertElement.parent('.question');
+    questionElement.removeClass('open');
     questionElement.unbind('click');
     radioButton.unbind('click');
     radioButton.siblings().unbind('click');
-    
-    // make next scale visible
-    questionElement.next('.q-candidate').removeClass('q-candidate');
-
+   
+    unfreezeAllOpenQuestions(); 
     resumePlayer();
   });
+  
+  function attentionToQuestion(questionElement) {
+    if (!playing()) {
+      return;
+    }
+    console.log("attention shifts to " + $(questionElement.children('h3')[0]).text());
+    pausePlayer();
+    freezeAllQuestions();
+    questionElement.find('.likertscale').removeClass('disabled');
+  }
+
+  function freezeAllQuestions() {
+    console.log("freezing");
+    $('.question').unbind('click'); 
+  }
+
+  function unfreezeAllOpenQuestions() {
+    console.log("unfreezing");
+    $('.question').filter('.open').click(function() {
+      attentionToQuestion($(this));
+    });
+  }
 
   function onYouTubePlayerReady(playerId) {
     console.log('playah ready with id ' + playerId);
