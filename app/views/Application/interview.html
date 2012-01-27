@@ -52,7 +52,19 @@
 </script>
 
 <script type="text/javascript">
-  var player;
+  var player = {
+    getPlayerState: function() {
+      return 1;
+    },
+
+    pauseVideo: function() {
+      return;
+    },
+
+    getCurrentTime: function() {
+      return 02;
+    }
+};
 
   $('.question').click(
     function() {
