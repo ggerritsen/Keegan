@@ -28,10 +28,6 @@ h3 {
   color: #bbb;
 }
 
-.q-candidate {
-  display: none;
-}
-
 .question {
   margin:auto;
 }
@@ -39,15 +35,6 @@ h3 {
 #output {
   text-align: left;
   margin: auto;
-}
-
-.radio {
-  width: 19px;
-  height: 25px;
-  padding: 0 5px 0 0;
-  display: block;
-  clear: left;
-  float: left;
 }
 
 #footer {
