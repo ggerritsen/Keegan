@@ -20,6 +20,11 @@ h3 {
   font-size: 1.4em;
 }
 
+a {
+  color: #444;
+  text-decoration: none;
+}
+
 .disabled {
   display: none;
 }

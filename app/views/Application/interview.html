@@ -68,6 +68,10 @@
 
   unfreezeAllOpenQuestions();
 
+  $('a').click(function(event) {
+    event.preventDefault();
+  });
+
   $('.likertscale > input:radio').click(function() {
     var time = player.getCurrentTime();
     var lineBreak = "\n";
@@ -109,12 +113,20 @@
 
   function freezeAllQuestions() {
     console.log("freezing");
-    $('.question').unbind('click'); 
+    var questions = $('.question');
+    
+    // make unclickable, both functionally and from a user perspective
+    questions.css('cursor', 'text');
+    questions.unbind('click'); 
   }
 
   function unfreezeAllOpenQuestions() {
     console.log("unfreezing");
-    $('.question').filter('.open').click(function() {
+    var openQuestions = $('.question').filter('.open');
+
+    // make clickable, both functionally and from a user perspective
+    openQuestions.css('cursor', 'auto');
+    openQuestions.click(function() {
       attentionToQuestion($(this));
     });
   }
