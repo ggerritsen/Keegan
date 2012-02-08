@@ -74,16 +74,12 @@
 
   $('.likertscale > input:radio').click(function() {
     var time = player.getCurrentTime();
-    var lineBreak = "\n";
-    var outputBox = $('#output');
     var radioButton = $(this);
     var chosenValue = radioButton.attr('value');
     var scaleName = radioButton.attr('name');
-    var existingText = outputBox.val();
-    if (existingText.length == 0) {
-      lineBreak = "";
-    }
-    outputBox.val(existingText + lineBreak + "Proefpersoon heeft " + chosenValue + " gekozen op de schaal " + scaleName + " (na " + time + " seconden).");
+    
+    storeAssessment(scaleName, chosenValue, time);
+    printAssessment(scaleName, chosenValue, time);
      
     var likertElement = radioButton.parent('.likertscale');
     likertElement.addClass('blocked');
@@ -154,5 +150,20 @@
 
   function paused() {
     return player.getPlayerState() === 2; // paused
+  }
+
+  function storeAssessment(scale, value, passedTime) {
+    console.log("storing");
+  }
+
+  function printAssessment(scale, value, passedTime) {
+    var lineBreak = "\n";
+    var outputBox = $('#output');
+    var existingText = outputBox.val();
+    
+    if (existingText.length == 0) {
+      lineBreak = "";
+    }
+    outputBox.val(existingText + lineBreak + "Proefpersoon heeft " + value + " gekozen op de schaal " + scale + " (na " + passedTime + " seconden).");
   }
 </script>
