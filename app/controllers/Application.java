@@ -1,11 +1,6 @@
 package controllers;
 
-import play.*;
-import play.mvc.*;
-
-import java.util.*;
-
-import models.*;
+import play.mvc.Controller;
 
 public class Application extends Controller {
 
@@ -17,6 +12,7 @@ public class Application extends Controller {
         render();
     }
 
+    // called with ajax
     public static void postAssessmentData(String scale, int value, String time) {
         System.out.println(String.format("scale: %s, value: %s, time: %s", scale, value, time));
     }
