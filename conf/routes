@@ -13,6 +13,7 @@ GET     /public/                                staticDir:public
 
 # Application url
 GET	/interview				Application.interview
+POST    /interview/assessment                   Application.postAssessmentData
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
