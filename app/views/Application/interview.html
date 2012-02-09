@@ -153,20 +153,14 @@
   }
 
   function storeAssessment(scale, value, passedTime) {
-    //var postAssessment = #{jsAction @postAssessmentData(':scaleParam', ':valueParam', ':timeParam') /}
+    console.log("storing assessment data");
     $.ajax({
       type: 'POST',
       url: 'interview/assessment',
       data: {scale: scale, value: value, time: passedTime},
-      success: function(){ console.log("succes");},
+      success: function(){ console.log("data stored with success"); },
       dataType: 'text'
     });
-    //$.post(postAssessment, {scaleParam: scale, valueParam: value, timeParam: passedTime}, function(data) {
-      //console.log("return");
-    //});
-
-    //postAssessment({scaleParam: scale, valueParam: value, timeParam: passedTime})();
-    console.log("storing");
   }
 
   function printAssessment(scale, value, passedTime) {
