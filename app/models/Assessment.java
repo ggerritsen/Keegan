@@ -11,6 +11,15 @@ public class Assessment extends Model {
     private int value;
     private double time;
 
+    // package private, for test purposes
+    Assessment() {}
+
+    public Assessment(String scale, int value, String time) {
+        setScale(scale);
+        setValue(value);
+        setTime(time);
+    }
+
     public String getScale() {
         return scale;
     }
