@@ -6,6 +6,9 @@ CREATE TABLE research_subject (
     intelligentie_Bvolgorde int DEFAULT -1,
     intelligentie_Vtijd double DEFAULT -1.0,
     intelligentie_score int DEFAULT -1,
+    aangenaamheid_Bvolgorde int DEFAULT -1,
+    aangenaamheid_Vtijd double DEFAULT -1.0,
+    aangenaamheid_score int DEFAULT -1,
     PRIMARY KEY (id)
 );
 

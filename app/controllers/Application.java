@@ -21,6 +21,9 @@ public class Application extends Controller {
         subject.getIntelligentie().setAssessmentOrder(1);
         subject.getIntelligentie().setTime(time);
         subject.getIntelligentie().setValue(value);
+        subject.getAangenaamheid().setAssessmentOrder(2);
+        subject.getAangenaamheid().setTime("3");
+        subject.getAangenaamheid().setValue(4);
         subject.save();
         Logger.info(String.format("Stored subject %s", subject));
     }
