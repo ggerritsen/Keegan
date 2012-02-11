@@ -1,1 +1,2 @@
 First commit
+- use heroku plugins:install ssh://git@github.com/ddollar/heroku-sql-console.git for easy heroku sql access
