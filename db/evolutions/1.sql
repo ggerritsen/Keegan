@@ -2,7 +2,7 @@
 # --- !Ups
 
 CREATE TABLE research_subject (
-    id SERIAL,
+    id SERIAL NOT NULL PRIMARY KEY,
     intelligentie_Bvolgorde int DEFAULT -1,
     intelligentie_Vtijd real DEFAULT -1.0,
     intelligentie_score int DEFAULT -1,
