@@ -65,6 +65,7 @@
       return 02;
     }
 };
+  var researchSubjectId = -1;
 
   unfreezeAllOpenQuestions();
 
@@ -157,8 +158,13 @@
     $.ajax({
       type: 'POST',
       url: 'interview/assessment',
-      data: {scaleLabel: scale, value: value, time: passedTime},
-      success: function(){ console.log("data stored with success"); },
+      data: {scaleLabel: scale, value: value, time: passedTime, subjectId: researchSubjectId},
+      success: function(data){ 
+        console.log("data stored with success: " + data); 
+        if (researchSubjectId === -1) {
+          researchSubjectId = data;
+        }
+      },
       dataType: 'text'
     });
   }

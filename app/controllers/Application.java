@@ -26,6 +26,8 @@ public class Application extends Controller {
 
         subject.save();
         Logger.info(String.format("Stored subject %s", subject));
+        Logger.info("Returning subjectId " + subject.getId());
+        renderJSON(subject.getId());
     }
 
     private static ResearchSubject getSubjectWithId(long subjectId) {
