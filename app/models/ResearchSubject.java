@@ -1,18 +1,61 @@
 package models;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
+import play.Logger;
 import play.db.jpa.Model;
 
 @Entity(name = "research_subject")
 public class ResearchSubject extends Model implements Serializable {
 
     public ResearchSubject() {
+    }
+
+    public Assessment getAssessmentWithLabel(String label) {
+        Map<String, Assessment> allAssessments = getAllAssessments();
+        for (Map.Entry<String, Assessment> entry : allAssessments.entrySet()) {
+            if (entry.getKey().equalsIgnoreCase(label)) {
+                return entry.getValue();
+            }
+        }
+        return null;
+    }
+
+    public int getNextInOrder() {
+        int count = 0;
+        for (Map.Entry<String, Assessment> entry : getAllAssessments().entrySet()) {
+            Logger.info("assessing stuff...: " + entry.getKey());
+            if (entry.getValue().getAssessmentOrder() > 0) {
+                Logger.info("assessment order > 0 --> " + entry.getValue().getAssessmentOrder());
+                count++;
+            }
+        }
+        return count + 1;
+    }
+
+    private Map<String, Assessment> getAllAssessments() {
+        return new HashMap<String, Assessment>() {{
+            put("intelligentie", intelligentie);
+            put("commercieelInzicht", commercieelInzicht);
+            put("verkoopVaardigheden", verkoopVaardigheden);
+            put("onderhandelen", onderhandelen);
+            put("productkennis", productkennis);
+            put("klantgerichtheid", klantGerichtheid);
+            put("communicatieveVaardigheid", communicatieveVaardigheid);
+            put("openheid", openheid);
+            put("conscientieusheid", conscientieusheid);
+            put("extraversie", extraversie);
+            put("aangenaamheid", aangenaamheid);
+            put("neuroticisme", neuroticisme);
+            put("eerlijkheid", eerlijkheid);
+        }};
     }
 
     @Embedded

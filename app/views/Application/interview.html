@@ -21,19 +21,19 @@
     <div role="navigation" class="yui-b">
     <!-- YOUR NAVIGATION GOES HERE -->
       <br/>
-      #{testscale name:'Intelligentie', label:'intl' /}
-      #{testscale name:'Commercieel inzicht', label:'inz' /}
-      #{testscale name:'Verkoopvaardigheden', label:'verk' /}
-      #{testscale name:'Onderhandelen', label:'ond' /}
-      #{testscale name:'Productkennis', label:'prod' /}
-      #{testscale name:'Klantgerichtheid', label:'ger' /}
-      #{testscale name:'Communicatieve vaardigheid', label:'comm' /}
-      #{testscale name:'Openheid', label:'open' /}
-      #{testscale name:'Consciëntieusheid', label:'cons' /}
-      #{testscale name:'Extraversie', label:'extr' /}
-      #{testscale name:'Aangenaamheid', label:'aang' /}
-      #{testscale name:'Neuroticisme', label:'neur' /}
-      #{testscale name:'Eerlijkheid', label:'eerl' /}
+      #{testscale name:'Intelligentie', label:'intelligentie' /}
+      #{testscale name:'Commercieel inzicht', label:'commercieelInzicht' /}
+      #{testscale name:'Verkoopvaardigheden', label:'verkoopVaardigheden' /}
+      #{testscale name:'Onderhandelen', label:'onderhandelen' /}
+      #{testscale name:'Productkennis', label:'productKennis' /}
+      #{testscale name:'Klantgerichtheid', label:'klantGerichtheid' /}
+      #{testscale name:'Communicatieve vaardigheid', label:'communicatieveVaardigheid' /}
+      #{testscale name:'Openheid', label:'openheid' /}
+      #{testscale name:'Consciëntieusheid', label:'conscientieusheid' /}
+      #{testscale name:'Extraversie', label:'extraversie' /}
+      #{testscale name:'Aangenaamheid', label:'aangenaamheid' /}
+      #{testscale name:'Neuroticisme', label:'neuroticisme' /}
+      #{testscale name:'Eerlijkheid', label:'eerlijkheid' /}
     </div>
   </div>
   <!--<div id="footer"><p>Footer</p></div>-->
@@ -157,7 +157,7 @@
     $.ajax({
       type: 'POST',
       url: 'interview/assessment',
-      data: {scale: scale, value: value, time: passedTime},
+      data: {scaleLabel: scale, value: value, time: passedTime},
       success: function(){ console.log("data stored with success"); },
       dataType: 'text'
     });

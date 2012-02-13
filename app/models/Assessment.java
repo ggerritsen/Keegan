@@ -14,23 +14,35 @@ public class Assessment implements Serializable {
         return assessmentOrder;
     }
 
-    public void setAssessmentOrder(int assessmentOrder) {
+    public Assessment setAssessmentOrder(int assessmentOrder) {
         this.assessmentOrder = assessmentOrder;
+        return this;
     }
 
     public int getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public Assessment setValue(int value) {
         this.value = value;
+        return this;
     }
 
     public double getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public Assessment setTime(String time) {
         this.time = Double.valueOf(time);
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Assessment{" +
+                "assessmentOrder=" + assessmentOrder +
+                ", value=" + value +
+                ", time=" + time +
+                '}';
     }
 }

@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Assessment;
 import models.ResearchSubject;
 import play.Logger;
 import play.mvc.Controller;
@@ -15,15 +16,14 @@ public class Application extends Controller {
     }
 
     // called with ajax
-    public static void postAssessmentData(String scale, int value, String time) {
-        Logger.info(String.format("Incoming assessment data: scale = %s, value = %s, time = %s", scale, value, time));
+    public static void postAssessmentData(String scaleLabel, int value, String time) {
+        Logger.info(String.format("Incoming assessment data: scale = %s, value = %s, time = %s", scaleLabel, value, time));
         ResearchSubject subject = new ResearchSubject();
-        subject.getIntelligentie().setAssessmentOrder(1);
-        subject.getIntelligentie().setTime(time);
-        subject.getIntelligentie().setValue(value);
-        subject.getAangenaamheid().setAssessmentOrder(2);
-        subject.getAangenaamheid().setTime("3");
-        subject.getAangenaamheid().setValue(4);
+        Assessment assessment = subject.getAssessmentWithLabel(scaleLabel);
+
+        assessment.setTime(time).setValue(value);
+        assessment.setAssessmentOrder(subject.getNextInOrder());
+
         subject.save();
         Logger.info(String.format("Stored subject %s", subject));
     }
