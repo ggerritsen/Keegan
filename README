@@ -1,3 +1,4 @@
 First commit
 - use heroku plugins:install ssh://git@github.com/ddollar/heroku-sql-console.git for easy heroku sql access
 - use 'export DATABASE_URL=postgres://localhost/keegan' for using a local postgres db
+- use 'heroku db:pull mysql://root:[pwd]@localhost/keegan_prod --confirm onderzoek-gent' to export prod db to local db
