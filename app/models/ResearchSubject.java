@@ -18,8 +18,8 @@ public class ResearchSubject extends Model implements Serializable {
         this.subjectInfo = new SubjectInfo();
     }
 
-    public void setName(String name) {
-        subjectInfo.setName(name);
+    public void setPpCode(String ppCode) {
+        subjectInfo.setPpCode(ppCode);
     }
 
     public Assessment getAssessmentWithLabel(String label) {

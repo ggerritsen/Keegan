@@ -3,19 +3,28 @@
 
 <body class="yui-skin-sam">
 <div id="doc4" class="yui-t3">
-  <div id="hd" role="banner"><h1>Goedemiddag! Welkom bij dit onderzoek</h1></div>
-
+  <div id="hd" role="banner">
+    <br/><br/>
+      <form method="POST" action="interview">
+        Beste deelnemer,
+        <br/>
+        Welkom bij het tweede deel van mijn onderzoek.
+        Alvorens door te gaan met de instructies vraag ik u om hier onder uw participatiecode in te vullen.
+        De participatiecode kan u vinden in de e-mail die ik u heb gestuurd met de link naar deze web pagina.
+        Knip en plak de code gerust in het onderstaande veld:
+        <br/><br/>
+        CODE: <input name="pp_code"/>
+        <br/><br/>
+        CODE (herhaling ter controle): <input name="pp_code_2"/>
+        <br/><br/>
+        Druk op ok om naar de instructies te gaan
+        <br/><br/>
+        <input type="submit" value="ok"/>
+      </form>
+    </div>
   <div id="bd" role="contentinfo">
     <div id="yui-main">
-      <div class="yui-b">
-        <div role="application" class="yui-g">
-	<!-- YOUR DATA GOES HERE -->
-        <form method="POST" action="interview">
-          <input name="pp_name"/>
-          <input type="submit" value="Ok"/>
-        </form>
-        </div>
-      </div>
+      <!-- YOUR DATA GOES HERE
     </div>
     <div role="navigation" class="yui-b">
     </div>

@@ -15,9 +15,9 @@ public class SubjectInfo extends Model implements Serializable {
     @JoinColumn(name = "subject_id")
     private ResearchSubject subject;
 
-    private String name;
+    private String ppCode;
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPpCode(String ppCode) {
+        this.ppCode = ppCode;
     }
 }
