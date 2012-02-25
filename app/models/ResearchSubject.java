@@ -3,11 +3,7 @@ package models;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 import play.Logger;
 import play.db.jpa.Model;
@@ -15,7 +11,15 @@ import play.db.jpa.Model;
 @Entity(name = "research_subject")
 public class ResearchSubject extends Model implements Serializable {
 
+    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, mappedBy="subject")
+    private SubjectInfo subjectInfo;
+
     public ResearchSubject() {
+        this.subjectInfo = new SubjectInfo();
+    }
+
+    public void setName(String name) {
+        subjectInfo.setName(name);
     }
 
     public Assessment getAssessmentWithLabel(String label) {

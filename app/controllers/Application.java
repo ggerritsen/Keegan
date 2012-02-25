@@ -17,7 +17,10 @@ public class Application extends Controller {
 
     public static void interview(String pp_name) {
         Logger.info("Proefpersoon %s is here", pp_name);
-        render();
+        ResearchSubject subject = subject = new ResearchSubject();
+        subject.setName(pp_name);
+        subject.save();
+        render(subject);
     }
 
     // called with ajax

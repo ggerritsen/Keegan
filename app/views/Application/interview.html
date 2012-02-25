@@ -62,10 +62,10 @@
     },
 
     getCurrentTime: function() {
-      return 02;
+      return "02.2991";
     }
 };
-  var researchSubjectId = -1;
+  var researchSubjectId = ${subject.id};
 
   unfreezeAllOpenQuestions();
 
@@ -160,10 +160,7 @@
       url: 'interview/assessment',
       data: {scaleLabel: scale, value: value, time: passedTime, subjectId: researchSubjectId},
       success: function(data){ 
-        console.log("data stored with success: " + data); 
-        if (researchSubjectId === -1) {
-          researchSubjectId = data;
-        }
+        console.log("data stored with success, return value is: " + data); 
       },
       dataType: 'text'
     });

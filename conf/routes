@@ -13,7 +13,7 @@ GET     /public/                                staticDir:public
 
 # Application url
 GET     /start                                  Application.start
-GET	/interview				Application.interview
+POST	/interview				Application.interview
 POST    /interview/assessment                   Application.postAssessmentData
 
 # Catch all
