@@ -11,7 +11,12 @@ public class Application extends Controller {
         render();
     }
 
-    public static void interview() {
+    public static void start() {
+        render();
+    }
+
+    public static void interview(String pp_name) {
+        Logger.info("Proefpersoon %s is here", pp_name);
         render();
     }
 
