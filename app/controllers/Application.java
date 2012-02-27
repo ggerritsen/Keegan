@@ -15,7 +15,7 @@ public class Application extends Controller {
         render();
     }
 
-    public static void interview(String pp_code, String pp_code_2) throws Exception {
+    public static void instructions(String pp_code, String pp_code_2) throws Exception {
         if (pp_code == null || pp_code.equals("") || !pp_code.equals(pp_code_2)) {
             throw new Exception("wrong pp_codes");
         }
@@ -24,6 +24,10 @@ public class Application extends Controller {
         subject.setPpCode(pp_code);
         subject.save();
         render(subject);
+    }
+
+    public static void interview(long subjectId) {
+        render(subjectId);
     }
 
     // called with ajax

@@ -1,0 +1,41 @@
+#{extends 'main.html' /}
+#{set title:'Onderzoek' /}
+
+<body class="yui-skin-sam">
+<div id="doc4" class="yui-t3">
+  <div id="hd" role="banner">
+    <br/><br/>
+    <h1>Instructies<h1/>
+    <br/><br/>
+    <h4>
+    In volgend videofragment krijgt u een kort selectie-interview te zien. Deze sollicitatie betreft de functie van Sales Officer bij Venditor, waarvan u de vacature hebt gelezen.
+    Het is de bedoeling dat u deze kandidaat gaat beoordelen op verschillende competenties en persoonlijkheidstrekken die normaliter beoordeeld worden tijdens een selectie interview.
+    <br/><br/>
+    In het volgende venster krijgt u meer uitleg over deze verschillende competenties en persoonlijkheidstrekken, het is essentieel dat u een goed beeld heeft van wat deze inhouden. Het is de bedoeling dat u gedurende het interview de beoordelingen maakt. Om dit te doen klikt u op de naam van het item dat u zou willen beoordelen. De video zal pauzeren zodat u niets mist en u kan gerust uw beoordeling maken.
+    <br/><br/>
+    Beoordelingen gaan van 1 = heel slecht / helemaal niet tot 7  = heel goed / helemaal wel. Na het maken van de beoordeling gaat het intervieuw verder en kan u zich richten op de andere items. 
+    <br/><br/>
+    Na afloop van het interview is er geen mogelijkheid meer tot het maken van beoordelingen, zorg er dus voor dat u de beoordelingen maakt tijdens het interview.
+    <br/>
+    Hierna ziet u welke competenties beoordeeld moeten worden en wat eronder verstaan wordt.
+    <br/><br/>
+    Veel succes!
+    <br/><br/>
+    <h4/>
+    <form method="POST" action="interview">
+      <input type="hidden" value="${subject.id}"/>
+      <input type="submit" value="Doorgaan"/> 
+    </form>
+  </div>
+  <div id="bd" role="contentinfo">
+    <div id="yui-main">
+      <!-- YOUR DATA GOES HERE
+    </div>
+    <div role="navigation" class="yui-b">
+    </div>
+  </div>
+  <!--<div id="footer"><p>Footer</p></div>-->
+</div>
+
+</body>
+</html>
