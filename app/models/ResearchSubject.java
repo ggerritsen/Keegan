@@ -11,15 +11,10 @@ import play.db.jpa.Model;
 @Entity(name = "research_subject")
 public class ResearchSubject extends Model implements Serializable {
 
-    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, mappedBy="subject")
-    private SubjectInfo subjectInfo;
-
-    public ResearchSubject() {
-        this.subjectInfo = new SubjectInfo();
-    }
+    private String ppCode;
 
     public void setPpCode(String ppCode) {
-        subjectInfo.setPpCode(ppCode);
+        this.ppCode = ppCode;
     }
 
     public Assessment getAssessmentWithLabel(String label) {
@@ -216,5 +211,9 @@ public class ResearchSubject extends Model implements Serializable {
 
     public Assessment getEerlijkheid() {
         return eerlijkheid;
+    }
+
+    public String getPpCode() {
+        return ppCode;
     }
 }

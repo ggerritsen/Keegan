@@ -15,14 +15,15 @@ public class Application extends Controller {
         render();
     }
 
-    public static void instructions(String pp_code, String pp_code_2) throws Exception {
-        if (pp_code == null || pp_code.equals("") || !pp_code.equals(pp_code_2)) {
+    public static void instructions(String pp_code, String pp_code_repeated) throws Exception {
+        if (pp_code == null || pp_code.equals("") || !pp_code.equals(pp_code_repeated)) {
             throw new Exception("wrong pp_codes");
         }
-        Logger.info("Proefpersoon %s is here", pp_code);
-        ResearchSubject subject = subject = new ResearchSubject();
+        Logger.info("Proefpersoon with code %s is here", pp_code);
+        ResearchSubject subject = new ResearchSubject();
         subject.setPpCode(pp_code);
         subject.save();
+        Logger.info("Proefpersoon with code %s is stored with id %s", subject.getPpCode(), subject.getId());
         render(subject);
     }
 
