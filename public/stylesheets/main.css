@@ -13,6 +13,7 @@ html {
 }
 
 h1 {
+  font-size: 1.5em;
   color: #5C9EBE;
 }
 
@@ -23,6 +24,10 @@ h3 {
 a {
   color: #444;
   text-decoration: none;
+}
+
+.error {
+  color: red;
 }
 
 .disabled {

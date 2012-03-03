@@ -16,8 +16,13 @@ public class Application extends Controller {
     }
 
     public static void instructions(String pp_code, String pp_code_repeated) throws Exception {
-        if (pp_code == null || pp_code.equals("") || !pp_code.equals(pp_code_repeated)) {
-            throw new Exception("wrong pp_codes");
+        validation.required(pp_code);
+        validation.required(pp_code_repeated);
+        validation.equals(pp_code, pp_code_repeated);
+        if (validation.hasErrors()) {
+            params.flash();
+            validation.keep();
+            start();
         }
         Logger.info("Proefpersoon with code %s is here", pp_code);
         ResearchSubject subject = new ResearchSubject();
