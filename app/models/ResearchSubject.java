@@ -11,6 +11,7 @@ import play.db.jpa.Model;
 @Entity(name = "research_subject")
 public class ResearchSubject extends Model implements Serializable {
 
+    @Column(name = "pp_code")
     private String ppCode;
 
     public void setPpCode(String ppCode) {

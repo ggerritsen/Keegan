@@ -3,6 +3,7 @@
 
 CREATE TABLE research_subject (
     id int PRIMARY KEY DEFAULT nextval('subject_sequence'),
+    pp_code varchar DEFAULT '',
     intelligentie_Bvolgorde int DEFAULT -1,
     intelligentie_Vtijd real DEFAULT -1.0,
     intelligentie_score int DEFAULT -1,
