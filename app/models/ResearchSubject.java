@@ -31,9 +31,9 @@ public class ResearchSubject extends Model implements Serializable {
     public int getNextInOrder() {
         int count = 0;
         for (Map.Entry<String, Assessment> entry : getAllAssessments().entrySet()) {
-            Logger.info("assessing stuff...: " + entry.getKey());
+            Logger.debug("assessing stuff...: " + entry.getKey());
             if (entry.getValue().getAssessmentOrder() > 0) {
-                Logger.info("assessment order > 0 --> " + entry.getValue().getAssessmentOrder());
+                Logger.debug("assessment order > 0 --> " + entry.getValue().getAssessmentOrder());
                 count++;
             }
         }
