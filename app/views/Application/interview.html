@@ -65,9 +65,7 @@
       return "02.2991";
     }
 };
-  var researchSubjectId = ${subjectId};
-  console.log("subjectId = " + researchSubjectId);
-
+  
   unfreezeAllOpenQuestions();
 
   $('a').click(function(event) {
@@ -159,7 +157,7 @@
     $.ajax({
       type: 'POST',
       url: 'interview/assessment',
-      data: {scaleLabel: scale, value: value, time: passedTime, subjectId: researchSubjectId},
+      data: {scaleLabel: scale, value: value, time: passedTime},
       success: function(data){ 
         console.log("data stored with success, return value is: " + data); 
       },

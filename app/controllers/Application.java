@@ -39,14 +39,14 @@ public class Application extends Controller {
 
     // page 4
     public static void interview() {
-        String subjectId = session.get(SUBJECT_ID);
-        Logger.info("Showing interview page for subject with id %s", subjectId);
-        render(subjectId);
+        render();
     }
 
     // called with ajax on page 4
-    public static void postAssessmentData(String scaleLabel, int value, String time, long subjectId) {
-        Logger.info(String.format("Incoming assessment data: scale = %s, value = %s, time = %s, id = %s", scaleLabel, value, time, subjectId));
+    public static void postAssessmentData(String scaleLabel, int value, String time) {
+        Logger.info(String.format("Incoming assessment data: scale = %s, value = %s, time = %s", scaleLabel, value, time));
+        String subjectId = session.get(SUBJECT_ID);
+        Logger.info("Retrieved subjectId %s from session", subjectId);
         ResearchSubject subject = getSubjectWithId(subjectId);
         Assessment assessment = subject.getAssessmentWithLabel(scaleLabel);
 
@@ -59,8 +59,8 @@ public class Application extends Controller {
         renderJSON(subject.getId());
     }
 
-    private static ResearchSubject getSubjectWithId(long subjectId) {
-        ResearchSubject subject = ResearchSubject.findById(subjectId);
+    private static ResearchSubject getSubjectWithId(String subjectId) {
+        ResearchSubject subject = ResearchSubject.findById(Long.valueOf(subjectId));
         if (subject == null) {
             subject = new ResearchSubject();
         }
