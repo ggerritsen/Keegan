@@ -37,6 +37,11 @@ public class Application extends Controller {
         render();
     }
 
+    // page 3
+    public static void explanationOfScales() {
+        render();
+    }
+
     // page 4
     public static void interview() {
         render();

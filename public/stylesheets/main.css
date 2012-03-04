@@ -26,6 +26,14 @@ a {
   text-decoration: none;
 }
 
+ul li {
+  list-style-type: disc;
+}
+
+b {
+  font-weight: bold;
+}
+
 .error {
   color: red;
 }
