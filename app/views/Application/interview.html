@@ -160,7 +160,7 @@
   }
 
   function storeAssessment(scale, value, passedTime) {
-    console.log("storing assessment data");
+    console.log("storing assessment data: scale = %s, value = %s, time = %s", scale, value, passedTime);
     $.ajax({
       type: 'POST',
       url: 'interview/assessment',
