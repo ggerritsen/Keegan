@@ -56,7 +56,9 @@ b {
 
 #explanationBox {
   margin: auto;
-  font-size: 1.4em; 
+  font-size: 1.2em;
+  border-style: solid; 
+  width: 600px;
 }
 
 #explanationBox .header {
