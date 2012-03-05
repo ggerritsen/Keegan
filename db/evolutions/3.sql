@@ -36,10 +36,10 @@ CREATE TABLE research_subject (
     emotioneleStabiliteit_score int DEFAULT -1,
     eerlijkheid_Bvolgorde int DEFAULT -1,
     eerlijkheid_Vtijd real DEFAULT -1.0,
-    eerlijkheid_score int DEFAULT -1
+    eerlijkheid_score int DEFAULT -1,
     intelligentie_Bvolgorde int DEFAULT -1,
     intelligentie_Vtijd real DEFAULT -1.0,
-    intelligentie_score int DEFAULT -1,
+    intelligentie_score int DEFAULT -1
 );
 
 # --- !Downs
