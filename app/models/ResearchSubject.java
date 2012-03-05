@@ -52,7 +52,7 @@ public class ResearchSubject extends Model implements Serializable {
             put("conscientieusheid", conscientieusheid);
             put("extraversie", extraversie);
             put("aangenaamheid", aangenaamheid);
-            put("neuroticisme", neuroticisme);
+            put("emotioneleStabiliteit", emotioneleStabiliteit);
             put("eerlijkheid", eerlijkheid);
         }};
     }
@@ -139,11 +139,11 @@ public class ResearchSubject extends Model implements Serializable {
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "assessmentOrder", column = @Column(name = "neuroticisme_Bvolgorde")),
-            @AttributeOverride(name = "value", column = @Column(name = "neuroticisme_score")),
-            @AttributeOverride(name = "time", column = @Column(name = "neuroticisme_Vtijd"))
+            @AttributeOverride(name = "assessmentOrder", column = @Column(name = "emotioneleStabiliteit_Bvolgorde")),
+            @AttributeOverride(name = "value", column = @Column(name = "emotioneleStabiliteit_score")),
+            @AttributeOverride(name = "time", column = @Column(name = "emotioneleStabiliteit_Vtijd"))
     })
-    private Assessment neuroticisme = new Assessment();
+    private Assessment emotioneleStabiliteit = new Assessment();
 
     @Embedded
     @AttributeOverrides({
@@ -193,8 +193,8 @@ public class ResearchSubject extends Model implements Serializable {
         return aangenaamheid;
     }
 
-    public Assessment getNeuroticisme() {
-        return neuroticisme;
+    public Assessment getEmotioneleStabiliteit() {
+        return emotioneleStabiliteit;
     }
 
     public Assessment getEerlijkheid() {

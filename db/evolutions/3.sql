@@ -31,9 +31,9 @@ CREATE TABLE research_subject (
     aangenaamheid_Bvolgorde int DEFAULT -1,
     aangenaamheid_Vtijd real DEFAULT -1.0,
     aangenaamheid_score int DEFAULT -1,
-    neuroticisme_Bvolgorde int DEFAULT -1,
-    neuroticisme_Vtijd real DEFAULT -1.0,
-    neuroticisme_score int DEFAULT -1,
+    emotioneleStabiliteit_Bvolgorde int DEFAULT -1,
+    emotioneleStabiliteit_Vtijd real DEFAULT -1.0,
+    emotioneleStabiliteit_score int DEFAULT -1,
     eerlijkheid_Bvolgorde int DEFAULT -1,
     eerlijkheid_Vtijd real DEFAULT -1.0,
     eerlijkheid_score int DEFAULT -1
