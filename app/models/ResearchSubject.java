@@ -46,7 +46,6 @@ public class ResearchSubject extends Model implements Serializable {
             put("commercieelInzicht", commercieelInzicht);
             put("verkoopVaardigheden", verkoopVaardigheden);
             put("onderhandelen", onderhandelen);
-            put("productkennis", productkennis);
             put("klantgerichtheid", klantGerichtheid);
             put("communicatieveVaardigheid", communicatieveVaardigheid);
             put("openheid", openheid);
@@ -89,14 +88,6 @@ public class ResearchSubject extends Model implements Serializable {
             @AttributeOverride(name = "time", column = @Column(name = "onderhandelen_Vtijd"))
     })
     private Assessment onderhandelen = new Assessment();
-
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "assessmentOrder", column = @Column(name = "productkennis_Bvolgorde")),
-            @AttributeOverride(name = "value", column = @Column(name = "productkennis_score")),
-            @AttributeOverride(name = "time", column = @Column(name = "productkennis_Vtijd"))
-    })
-    private Assessment productkennis = new Assessment();
 
     @Embedded
     @AttributeOverrides({
@@ -176,10 +167,6 @@ public class ResearchSubject extends Model implements Serializable {
 
     public Assessment getOnderhandelen() {
         return onderhandelen;
-    }
-
-    public Assessment getProductkennis() {
-        return productkennis;
     }
 
     public Assessment getKlantGerichtheid() {
