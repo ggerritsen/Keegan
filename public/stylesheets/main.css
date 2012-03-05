@@ -50,9 +50,17 @@ b {
   margin:auto;
 }
 
-#output {
-  text-align: left;
+.explanation {
+  display: none;
+}
+
+#explanationBox {
   margin: auto;
+  font-size: 1.4em; 
+}
+
+#explanationBox .header {
+  font-weight: bold;
 }
 
 #footer {

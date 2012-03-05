@@ -21,8 +21,8 @@
     <div role="navigation" class="yui-b">
     <!-- YOUR NAVIGATION GOES HERE -->
       <br/>
-      #{testscale name:'Commercieel inzicht', label:'commercieelInzicht' /}
-      #{testscale name:'Verkoopvaardigheden', label:'verkoopVaardigheden' /}
+      #{testscale name:'Commercieel inzicht', label:'commercieelInzicht', explanation:'De kandidaat toont inzicht te hebben in de marktmechanismen binnen en buiten het bedrijf. Hij/Zij weet waarom bepaalde producten of diensten succes hebben en andere niet.' /}
+      #{testscale name:'Verkoopvaardigheden', label:'verkoopVaardigheden', explanation:'blabliebloebla' /}
       #{testscale name:'Onderhandelen', label:'onderhandelen' /}
       #{testscale name:'Klantgerichtheid', label:'klantGerichtheid' /}
       #{testscale name:'Mondeling communiceren', label:'mondelingCommuniceren' /}
@@ -39,7 +39,7 @@
 </div>
 
 <br/>
-<textarea id="output" cols="100" rows="5"></textarea> 
+<div id="explanationBox"></div>
 
 </body>
 </html>
@@ -78,7 +78,6 @@
     var scaleName = radioButton.attr('name');
     
     storeAssessment(scaleName, chosenValue, time);
-    printAssessment(scaleName, chosenValue, time);
      
     var likertElement = radioButton.parent('.likertscale');
     likertElement.addClass('blocked');
@@ -104,6 +103,10 @@
     pausePlayer();
     freezeAllQuestions();
     questionElement.find('.likertscale').removeClass('disabled');
+
+    var explanationElement = questionElement.find('.explanation');
+    var explanationBox = $('#explanationBox');
+    explanationBox.html(explanationElement.html());
   }
 
   function freezeAllQuestions() {
@@ -162,16 +165,5 @@
       },
       dataType: 'text'
     });
-  }
-
-  function printAssessment(scale, value, passedTime) {
-    var lineBreak = "\n";
-    var outputBox = $('#output');
-    var existingText = outputBox.val();
-    
-    if (existingText.length == 0) {
-      lineBreak = "";
-    }
-    outputBox.val(existingText + lineBreak + "Proefpersoon heeft " + value + " gekozen op de schaal " + scale + " (na " + passedTime + " seconden).");
   }
 </script>
