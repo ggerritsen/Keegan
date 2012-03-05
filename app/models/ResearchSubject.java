@@ -47,7 +47,7 @@ public class ResearchSubject extends Model implements Serializable {
             put("verkoopVaardigheden", verkoopVaardigheden);
             put("onderhandelen", onderhandelen);
             put("klantgerichtheid", klantGerichtheid);
-            put("communicatieveVaardigheid", communicatieveVaardigheid);
+            put("mondelingCommuniceren", mondelingCommuniceren);
             put("openheid", openheid);
             put("conscientieusheid", conscientieusheid);
             put("extraversie", extraversie);
@@ -99,11 +99,11 @@ public class ResearchSubject extends Model implements Serializable {
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "assessmentOrder", column = @Column(name = "communicatieveVaardigheid_Bvolgorde")),
-            @AttributeOverride(name = "value", column = @Column(name = "communicatieveVaardigheid_score")),
-            @AttributeOverride(name = "time", column = @Column(name = "communicatieveVaardigheid_Vtijd"))
+            @AttributeOverride(name = "assessmentOrder", column = @Column(name = "mondelingCommuniceren_Bvolgorde")),
+            @AttributeOverride(name = "value", column = @Column(name = "mondelingCommuniceren_score")),
+            @AttributeOverride(name = "time", column = @Column(name = "mondelingCommuniceren_Vtijd"))
     })
-    private Assessment communicatieveVaardigheid = new Assessment();
+    private Assessment mondelingCommuniceren = new Assessment();
 
     @Embedded
     @AttributeOverrides({
@@ -173,8 +173,8 @@ public class ResearchSubject extends Model implements Serializable {
         return klantGerichtheid;
     }
 
-    public Assessment getCommunicatieveVaardigheid() {
-        return communicatieveVaardigheid;
+    public Assessment getMondelingCommuniceren() {
+        return mondelingCommuniceren;
     }
 
     public Assessment getOpenheid() {
