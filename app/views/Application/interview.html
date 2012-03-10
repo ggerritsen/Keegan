@@ -108,7 +108,7 @@
   });
   
   function attentionToQuestion(questionElement) {
-    if (!playing()) {
+    if (!playing() && !ended()) {
       return;
     }
     console.log("attention shifts to " + $(questionElement.children('h3')[0]).text());
@@ -133,12 +133,15 @@
 
   function unfreezeAllOpenQuestions() {
     console.log("unfreezing");
-    var openQuestions = $('.question').filter('.open');
+    var openQuestions = getOpenQuestions();
 
     // if all questions are filled in, show the button to go to the next page
     if (openQuestions.size() === 0) {
       console.log("all questions answered, showing submit button");
       footer().show();
+      if (ended()) {
+        goToNextPage();
+      }
     }
 
     // make clickable, both functionally and from a user perspective
@@ -150,9 +153,23 @@
     $('#explanationBox').hide();
   }
 
+  function getOpenQuestions() {
+    return $('.question').filter('.open');
+  }
+
   function onYouTubePlayerReady(playerId) {
     console.log('playah ready with id ' + playerId);
     player = document.getElementById('player');
+    player.addEventListener("onStateChange", "onYouTubePlayerStateChange");
+  }
+
+  function onYouTubePlayerStateChange(state) {
+    console.log("player's state changed: " + state);
+    
+    // if player has ended and there are no more open questions, go to next page
+    if (state === 0 && getOpenQuestions().size() === 0) {
+      goToNextPage();
+    } 
   }
 
   function pausePlayer() {
@@ -175,6 +192,10 @@
     return player.getPlayerState() === 2; // paused
   }
 
+  function ended() {
+    return player.getPlayerState() === 0; //ended
+  }
+
   function storeAssessment(scale, value, passedTime) {
     console.log("storing assessment data: scale = %s, value = %s, time = %s", scale, value, passedTime);
     $.ajax({
@@ -189,6 +210,10 @@
   }
 
   function footer() {
-    return $('#footer')
+    return $('#footer');
+  }
+
+  function goToNextPage() {
+    $footer().find("form").submit();
   }
 </script>
