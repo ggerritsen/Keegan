@@ -15,8 +15,9 @@ GET     /public/                                staticDir:public
 GET     /start                                  Application.start
 POST    /instructions                           Application.instructions
 GET     /explanation                            Application.explanationOfScales
-GET     /interview				Application.interview
+GET     /interview                              Application.interview
 POST    /interview/assessment                   Application.postAssessmentData
+GET     /bedankt                                Application.thanks
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

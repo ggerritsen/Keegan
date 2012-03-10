@@ -54,6 +54,10 @@ b {
   display: none;
 }
 
+.email {
+  color: blue;
+}
+
 #explanationBox {
   margin: auto;
   font-size: 1.2em;

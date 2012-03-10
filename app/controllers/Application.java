@@ -76,6 +76,10 @@ public class Application extends Controller {
         renderJSON(subject.getId());
     }
 
+    public static void thanks() {
+        render();
+    }
+
     private static void storeVideoType(String videoType) {
         session.put(VIDEO_TYPE, videoType);
     }
