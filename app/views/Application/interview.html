@@ -77,6 +77,7 @@
 };
   
   unfreezeAllOpenQuestions();
+  footer().hide();
 
   $('a').click(function(event) {
     event.preventDefault();
@@ -134,6 +135,12 @@
     console.log("unfreezing");
     var openQuestions = $('.question').filter('.open');
 
+    // if all questions are filled in, show the button to go to the next page
+    if (openQuestions.size() === 0) {
+      console.log("all questions answered, showing submit button");
+      footer().show();
+    }
+
     // make clickable, both functionally and from a user perspective
     openQuestions.css('cursor', 'pointer');
     openQuestions.click(function() {
@@ -179,5 +186,9 @@
       },
       dataType: 'text'
     });
+  }
+
+  function footer() {
+    return $('#footer')
   }
 </script>
