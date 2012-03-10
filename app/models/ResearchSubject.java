@@ -14,8 +14,15 @@ public class ResearchSubject extends Model implements Serializable {
     @Column(name = "pp_code")
     private String ppCode;
 
+    @Column(name = "video_type")
+    private String videoType;
+
     public void setPpCode(String ppCode) {
         this.ppCode = ppCode;
+    }
+
+    public void setVideoType(String videoType) {
+        this.videoType = videoType;
     }
 
     public Assessment getAssessmentWithLabel(String label) {

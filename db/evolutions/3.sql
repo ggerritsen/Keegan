@@ -4,6 +4,7 @@
 CREATE TABLE research_subject (
     id int PRIMARY KEY DEFAULT nextval('subject_sequence'),
     pp_code varchar DEFAULT '',
+    video_type varchar DEFAULT '',
     commercieelInzicht_Bvolgorde int DEFAULT -1,
     commercieelInzicht_Vtijd real DEFAULT -1.0,
     commercieelInzicht_score int DEFAULT -1,

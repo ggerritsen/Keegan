@@ -37,9 +37,12 @@ public class Application extends Controller {
             start(null);
         }
         Logger.info("Proefpersoon with code %s is here", pp_code);
+
         ResearchSubject subject = new ResearchSubject();
         subject.setPpCode(pp_code);
+        subject.setVideoType(retrieveVideoType());
         subject.save();
+
         session.put(SUBJECT_ID, subject.getId());
         Logger.info("Proefpersoon with code %s is stored with id %s", subject.getPpCode(), subject.getId());
         render();
