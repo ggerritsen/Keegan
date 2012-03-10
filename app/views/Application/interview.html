@@ -41,6 +41,8 @@
 
 <div id="explanationBox"></div>
 
+<div id="time"/>
+
 <br/><br/>
 
 <div id="footer">
@@ -78,6 +80,12 @@
   
   unfreezeAllOpenQuestions();
   footer().hide();
+
+  function timeIt() {
+    var currentTime = new Date(player.getCurrentTime() * 1000);
+    var duration = new Date(player.getDuration() * 1000);
+    $('#time').text(" " + currentTime.getMinutes() + ":" + currentTime.getSeconds() + " / " + duration.getMinutes() + ":" + duration.getSeconds());
+  }
 
   $('a').click(function(event) {
     event.preventDefault();
