@@ -10,6 +10,7 @@ import play.db.jpa.Model;
 
 @Entity(name = "research_subject")
 public class ResearchSubject extends Model implements Serializable {
+    private static final String DEFAULT_VIDEO_TYPE = "m1";
 
     @Column(name = "pp_code")
     private String ppCode;
@@ -22,6 +23,9 @@ public class ResearchSubject extends Model implements Serializable {
     }
 
     public void setVideoType(String videoType) {
+        if (videoType == null || videoType.equals("")) {
+            videoType = DEFAULT_VIDEO_TYPE;
+        }
         this.videoType = videoType;
     }
 
@@ -210,5 +214,9 @@ public class ResearchSubject extends Model implements Serializable {
 
     public String getPpCode() {
         return ppCode;
+    }
+
+    public String getVideoType() {
+        return videoType;
     }
 }
