@@ -77,9 +77,7 @@ public class Application extends Controller {
     }
 
     private static void storeVideoType(String videoType) {
-        if (videoType != null) {
-            session.put(VIDEO_TYPE, videoType);
-        }
+        session.put(VIDEO_TYPE, videoType);
     }
 
     private static String retrieveVideoType() {
