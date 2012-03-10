@@ -168,6 +168,7 @@
     
     // if player has ended and there are no more open questions, go to next page
     if (state === 0 && getOpenQuestions().size() === 0) {
+      console.log("played ended and there are no open questions left, going to next page");
       goToNextPage();
     } 
   }
@@ -214,6 +215,6 @@
   }
 
   function goToNextPage() {
-    $footer().find("form").submit();
+    footer().find("form").submit();
   }
 </script>
