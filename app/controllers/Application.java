@@ -10,16 +10,17 @@ public class Application extends Controller {
     private static final String SUBJECT_ID = "subjectId";
     private static final String VIDEO_TYPE = "videoType";
 
+    private static final String VIDEO_ID_V0 = "2clW6u5gIGs";
+    private static final String VIDEO_ID_V1 = "IFweETB-wMA";
+    private static final String VIDEO_ID_M0 = "nmXXjkLXOD0";
+    private static final String VIDEO_ID_M1 = "RfV8bucC7XA";
+
     public static void index() {
         render();
     }
 
     // page 1
     public static void start(String v) {
-        if (v == null) {
-            Logger.info("video type not found, retrieving from session");
-            v = retrieveVideoType();
-        }
         Logger.info("video type is " + v);
         storeVideoType(v);
         render();
@@ -51,7 +52,7 @@ public class Application extends Controller {
 
     // page 4
     public static void interview() {
-        String videoId = createLinkFrom(retrieveVideoType());
+        String videoId = videoIdBasedOn(retrieveVideoType());
         render(videoId);
     }
 
@@ -73,24 +74,24 @@ public class Application extends Controller {
     }
 
     private static void storeVideoType(String videoType) {
-        session.put(VIDEO_TYPE, videoType);
+        if (videoType != null) {
+            session.put(VIDEO_TYPE, videoType);
+        }
     }
 
     private static String retrieveVideoType() {
         return session.get(VIDEO_TYPE);
     }
 
-    private static String createLinkFrom(String videoType) {
-        String videoId;
+    private static String videoIdBasedOn(String videoType) {
         if ("v0".equals(videoType)) {
-            videoId = "2clW6u5gIGs";
+            return VIDEO_ID_V0;
         } else if ("v1".equals(videoType)) {
-            videoId = "IFweETB-wMA";
+            return VIDEO_ID_V1;
         } else if ("m0".equals(videoType)) {
-            videoId = "nmXXjkLXOD0";
+            return VIDEO_ID_M0;
         } else {
-            videoId = "RfV8bucC7XA";
+            return VIDEO_ID_M1;
         }
-        return videoId;
     }
 }
