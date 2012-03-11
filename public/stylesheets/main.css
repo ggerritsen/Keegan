@@ -69,6 +69,10 @@ b {
   font-weight: bold;
 }
 
+#explanationBox .content {
+  padding: 1em;
+}
+
 #footer {
   margin-top: 1em auto;
   color: hsl(0, 100%, 50%); 
