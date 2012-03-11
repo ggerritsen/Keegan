@@ -37,12 +37,9 @@
   </div>
 </div>
 
+
+<div id="time"></div>
 <br/><br/>
-
-<div id="time"/>
-
-<br/><br/>
-
 <div id="explanationBox"></div>
 
 <br/><br/>
@@ -84,10 +81,16 @@
   footer().hide();
   
   function showPlayerTime() {
-    var currentTime = new Date(player.getCurrentTime() * 1000);
-    var duration = new Date(player.getDuration() * 1000);
-    $('#time').text(" " + currentTime.getMinutes() + ":" + currentTime.getSeconds() + " / " + duration.getMinutes() + ":" + duration.getSeconds());
+    var currentTime = displayableTimeFor(player.getCurrentTime());
+    var duration = displayableTimeFor(player.getDuration());
+    
+    $('#time').text(" " + currentTime + " / " + duration);
     setTimeout(showPlayerTime, 1000);
+  }
+
+  function displayableTimeFor(timeInSeconds) {
+    var displayTime = new Date(timeInSeconds * 1000);
+    return displayTime.getMinutes() + ":" + displayTime.getSeconds();
   }
 
   $('a').click(function(event) {
