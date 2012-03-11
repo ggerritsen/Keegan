@@ -39,9 +39,11 @@
 
 <br/><br/>
 
-<div id="explanationBox"></div>
-
 <div id="time"/>
+
+<br/><br/>
+
+<div id="explanationBox"></div>
 
 <br/><br/>
 
@@ -80,11 +82,12 @@
   
   unfreezeAllOpenQuestions();
   footer().hide();
-
-  function timeIt() {
+  
+  function showPlayerTime() {
     var currentTime = new Date(player.getCurrentTime() * 1000);
     var duration = new Date(player.getDuration() * 1000);
     $('#time').text(" " + currentTime.getMinutes() + ":" + currentTime.getSeconds() + " / " + duration.getMinutes() + ":" + duration.getSeconds());
+    setTimeout(showPlayerTime, 1000);
   }
 
   $('a').click(function(event) {
@@ -169,11 +172,12 @@
     console.log('playah ready with id ' + playerId);
     player = document.getElementById('player');
     player.addEventListener("onStateChange", "onYouTubePlayerStateChange");
+    showPlayerTime();
   }
 
   function onYouTubePlayerStateChange(state) {
     console.log("player's state changed: " + state);
-    
+   
     // if player has ended and there are no more open questions, go to next page
     if (state === 0 && getOpenQuestions().size() === 0) {
       console.log("played ended and there are no open questions left, going to next page");
