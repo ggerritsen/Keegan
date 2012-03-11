@@ -90,7 +90,13 @@
 
   function displayableTimeFor(timeInSeconds) {
     var displayTime = new Date(timeInSeconds * 1000);
-    return displayTime.getMinutes() + ":" + displayTime.getSeconds();
+    var seconds = displayTime.getSeconds();
+    
+    // prepend '0' if number of seconds is lower than 10
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
+    return displayTime.getMinutes() + ":" + seconds;
   }
 
   $('a').click(function(event) {
