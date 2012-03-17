@@ -100,7 +100,7 @@
   }
 
   $('a').click(function(event) {
-    event.preventDefault();
+    preventDefault(event);
   });
 
   $('.likertscale > input:radio').click(function() {
@@ -114,7 +114,7 @@
     var likertElement = radioButton.parent('.likertscale');
     likertElement.addClass('blocked');
     $(likertElement).click(function(event) {
-      event.preventDefault();
+      preventDefault(event);
     });
     
     var questionElement = likertElement.parent('.question');
@@ -237,5 +237,13 @@
 
   function goToNextPage() {
     footer().find("form").submit();
+  }
+
+  function preventDefault(event) {
+    if (event.preventDefault) {
+      event.preventDefault();
+    } else {
+      event.returnValue = false;
+    }
   }
 </script>
