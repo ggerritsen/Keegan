@@ -80,25 +80,6 @@
   unfreezeAllOpenQuestions();
   footer().hide();
   
-  function showPlayerTime() {
-    var currentTime = displayableTimeFor(player.getCurrentTime());
-    var duration = displayableTimeFor(player.getDuration());
-    
-    $('#time').text(" " + currentTime + " / " + duration);
-    setTimeout(showPlayerTime, 1000);
-  }
-
-  function displayableTimeFor(timeInSeconds) {
-    var displayTime = new Date(timeInSeconds * 1000);
-    var seconds = displayTime.getSeconds();
-    
-    // prepend '0' if number of seconds is lower than 10
-    if (seconds < 10) {
-      seconds = "0" + seconds;
-    }
-    return displayTime.getMinutes() + ":" + seconds;
-  }
-
   $('a').click(function(event) {
     preventDefault(event);
   });
@@ -246,4 +227,24 @@
       event.returnValue = false;
     }
   }
+  
+  function showPlayerTime() {
+    var currentTime = displayableTimeFor(player.getCurrentTime());
+    var duration = displayableTimeFor(player.getDuration());
+    
+    $('#time').text(" " + currentTime + " / " + duration);
+    setTimeout(showPlayerTime, 1000);
+  }
+
+  function displayableTimeFor(timeInSeconds) {
+    var displayTime = new Date(timeInSeconds * 1000);
+    var seconds = displayTime.getSeconds();
+    
+    // prepend '0' if number of seconds is lower than 10
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
+    return displayTime.getMinutes() + ":" + seconds;
+  }
+
 </script>
