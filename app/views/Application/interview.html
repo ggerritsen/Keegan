@@ -113,9 +113,18 @@
       return;
     }
     console.log("attention shifts to " + $(questionElement.children('h3')[0]).text());
+    
     pausePlayer();
     freezeAllQuestions();
+    // keep pointer on this question
+    questionElement.css('cursor', 'pointer');
     questionElement.find('.likertscale').removeClass('disabled');
+
+    questionElement.click(function() {
+      questionElement.find('.likertscale').addClass('disabled');
+      unfreezeAllOpenQuestions();
+      resumePlayer(); 
+    });
 
     var explanationElement = questionElement.find('.explanation');
     var explanationBox = $('#explanationBox');
