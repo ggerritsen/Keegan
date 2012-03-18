@@ -110,9 +110,13 @@ Deze kandidaat zou aannemen voor een back-office functie
     &nbsp;
   </div>
 
-Is u iets opgevallen aan de kandidaat? Zo ja, schrijf hieronder kort wat:
-[TEXTBOX, MAX 100 karakters]
-        
+<br/><br/>
+Is u iets opgevallen aan het uiterlijk van de kandidaat? Zo ja, schrijf hieronder kort wat:
+<br/><br/>
+<textarea cols="80" rows="8">
+</textarea>       
+
+        <br/><br/> 
         <input id="submit-button" disabled="enabled" type="submit" value="Doorgaan"/>
       </form>
     </div>
@@ -122,5 +126,26 @@ Is u iets opgevallen aan de kandidaat? Zo ja, schrijf hieronder kort wat:
 </html>
 
 <script type="text/javascript">
+function everythingDone() {
+  var gesprekChecked = $("input[name='gesprek']:checked").attr('value') != undefined; console.log('gesprek checked = ' + gesprekChecked);
+  var aanneemtChecked = $("input[name='aanneemt']:checked").attr('value') != undefined; console.log('aanneemt checked = ' + aanneemtChecked);
+  var afwijstChecked = $("input[name='afwijst']:checked").attr('value') != undefined; console.log('afwijst checked = ' + afwijstChecked);
+  var commercieelChecked = $("input[name='commercieel']:checked").attr('value') != undefined; console.log('commercieel checked = ' + commercieelChecked);
+  var backofficeChecked = $("input[name='backoffice']:checked").attr('value') != undefined; console.log('backoffice checked = ' + backofficeChecked);
+  var done = gesprekChecked && aanneemtChecked && afwijstChecked && commercieelChecked && backofficeChecked; 
+  return done;
+}
+
+function enableSubmitButtonWhenReady() {
+  if (everythingDone()) {
+    console.log("everything done, enabling submit button");
+    $('#submit-button').removeAttr('disabled');
+  } else {
+    setTimeout(enableSubmitButtonWhenReady, 500);
+  }
+}
+
+enableSubmitButtonWhenReady();
+
 </script>
 
