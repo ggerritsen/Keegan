@@ -17,6 +17,7 @@ POST    /instructions                           Application.instructions
 GET     /explanation                            Application.explanationOfScales
 GET     /interview                              Application.interview
 POST    /interview/assessment                   Application.postAssessmentData
+GET     /extraQuestions                         Application.extraQuestions
 GET     /bedankt                                Application.thanks
 
 # Catch all

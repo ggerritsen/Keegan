@@ -76,6 +76,10 @@ public class Application extends Controller {
         renderJSON(subject.getId());
     }
 
+    public static void extraQuestions() {
+        render();
+    }
+
     public static void thanks() {
         render();
     }
