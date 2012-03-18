@@ -38,19 +38,26 @@
         <br/><br/>
         Druk op ok om naar de instructies te gaan
         <br/><br/>
-        <input type="checkbox" name="job_opening_read"> Ik heb de vacature gelezen</checkbox>
+        <input type="checkbox" id="job_opening_read" name="job_opening_read"> Ik heb de vacature gelezen</checkbox>
         <br/><br/>
-        <input type="submit" value="ok"/>
+        <input id="submit-button" disabled="enabled" type="submit" value="ok"/>
       </form>
     </div>
-  <div id="bd" role="contentinfo">
-    <div id="yui-main">
-      <!-- YOUR DATA GOES HERE
-    </div>
-    <div role="navigation" class="yui-b">
-    </div>
-  </div>
 </div>
 
 </body>
 </html>
+
+<script type="text/javascript">
+  $('#job_opening_read').click(function() {
+    var checked = $(this).is(":checked");
+    if (checked) {
+      console.log('enabling submit button');
+      $('#submit-button').removeAttr('disabled');
+    } else {
+      console.log('disabling submit button');
+      $('#submit-button').attr('disabled', 'disabled');    
+    }
+  });
+</script>
+
