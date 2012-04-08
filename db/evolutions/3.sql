@@ -40,7 +40,13 @@ CREATE TABLE research_subject (
     eerlijkheid_score int DEFAULT -1,
     intelligentie_Bvolgorde int DEFAULT -1,
     intelligentie_Vtijd real DEFAULT -1.0,
-    intelligentie_score int DEFAULT -1
+    intelligentie_score int DEFAULT -1,
+    tweedeGesprek int DEFAULT -1,
+    aanneemt int DEFAULT -1,
+    afwijst int DEFAULT -1,
+    commercieel int DEFAULT -1,
+    backOffice int DEFAULT -1,
+    comments varchar(200) DEFAULT ''
 );
 
 # --- !Downs

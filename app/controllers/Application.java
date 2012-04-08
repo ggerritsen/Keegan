@@ -1,6 +1,7 @@
 package controllers;
 
 import models.Assessment;
+import models.ExtraQuestions;
 import models.ResearchSubject;
 import play.Logger;
 import play.mvc.Controller;
@@ -82,11 +83,20 @@ public class Application extends Controller {
     }
 
     // page 6
-    public static void thanks(int gesprek, int aanneemt, int afwijst, int commercieel, int backoffice) {
-        Logger.info(String.format("Incoming extra questions data: gesprek = %s, aanneemt = %s, afwijst = %s, commercieel = %s, backoffice = %s",
-                gesprek, aanneemt, afwijst, commercieel, backoffice));
+    public static void thanks(int gesprek, int aanneemt, int afwijst, int commercieel, int backoffice, String comments) {
+        Logger.info(String.format("Incoming extra questions data: gesprek = %s, aanneemt = %s, afwijst = %s, commercieel = %s, backoffice = %s, comments = %s",
+                gesprek, aanneemt, afwijst, commercieel, backoffice, comments));
+
         ResearchSubject subject = ResearchSubject.findById(Long.valueOf(session.get(SUBJECT_ID)));
-        subject.getExtraQuestions();
+        ExtraQuestions extraQuestions = subject.getExtraQuestions();
+        extraQuestions.setTweedeGesprek(gesprek);
+        extraQuestions.setAanneemt(aanneemt);
+        extraQuestions.setAfwijst(afwijst);
+        extraQuestions.setCommercieel(commercieel);
+        extraQuestions.setBackOffice(backoffice);
+        extraQuestions.setComments(comments);
+        subject.save();
+        
         render();
     }
 

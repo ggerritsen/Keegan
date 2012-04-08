@@ -18,8 +18,8 @@ public class ResearchSubject extends Model implements Serializable {
     @Column(name = "video_type")
     private String videoType;
 
-//    @Embedded
-    private ExtraQuestions extraQuestions;
+    @Embedded
+    private ExtraQuestions extraQuestions = new ExtraQuestions();
 
     public void setPpCode(String ppCode) {
         this.ppCode = ppCode;
@@ -55,9 +55,6 @@ public class ResearchSubject extends Model implements Serializable {
     }
 
     public ExtraQuestions getExtraQuestions() {
-        if (extraQuestions == null) {
-            extraQuestions = new ExtraQuestions();
-        }
         return extraQuestions;
     }
 
