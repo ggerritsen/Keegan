@@ -76,13 +76,17 @@ public class Application extends Controller {
         renderJSON(subject.getId());
     }
 
+    // page 5
     public static void extraQuestions() {
         render();
     }
 
+    // page 6
     public static void thanks(int gesprek, int aanneemt, int afwijst, int commercieel, int backoffice) {
         Logger.info(String.format("Incoming extra questions data: gesprek = %s, aanneemt = %s, afwijst = %s, commercieel = %s, backoffice = %s",
                 gesprek, aanneemt, afwijst, commercieel, backoffice));
+        ResearchSubject subject = ResearchSubject.findById(Long.valueOf(session.get(SUBJECT_ID)));
+        subject.getExtraQuestions();
         render();
     }
 
