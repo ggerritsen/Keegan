@@ -111,9 +111,9 @@ Deze kandidaat zou aannemen voor een back-office functie
   </div>
 
 <br/><br/>
-Is u iets opgevallen aan het uiterlijk van de kandidaat? Zo ja, schrijf hieronder kort wat:
+Is u iets opgevallen aan het uiterlijk van de kandidaat? Zo ja, schrijf hieronder kort wat (in max. 200 tekens):
 <br/><br/>
-<textarea cols="80" rows="8">
+<textarea cols="90" rows="6" id="comments">
 </textarea>       
 
         <br/><br/> 
@@ -126,12 +126,21 @@ Is u iets opgevallen aan het uiterlijk van de kandidaat? Zo ja, schrijf hieronde
 </html>
 
 <script type="text/javascript">
+
+$('#comments').keydown(function(event) { 
+  var maxLength = 200;
+  var textarea = $(this);
+  if (textarea.val().length > maxLength) {
+    textarea.val(textarea.val().substring(0, maxLength)); 
+  }
+})
+
 function everythingDone() {
-  var gesprekChecked = $("input[name='gesprek']:checked").attr('value') != undefined; console.log('gesprek checked = ' + gesprekChecked);
-  var aanneemtChecked = $("input[name='aanneemt']:checked").attr('value') != undefined; console.log('aanneemt checked = ' + aanneemtChecked);
-  var afwijstChecked = $("input[name='afwijst']:checked").attr('value') != undefined; console.log('afwijst checked = ' + afwijstChecked);
-  var commercieelChecked = $("input[name='commercieel']:checked").attr('value') != undefined; console.log('commercieel checked = ' + commercieelChecked);
-  var backofficeChecked = $("input[name='backoffice']:checked").attr('value') != undefined; console.log('backoffice checked = ' + backofficeChecked);
+  var gesprekChecked = $("input[name='gesprek']:checked").attr('value') != undefined; 
+  var aanneemtChecked = $("input[name='aanneemt']:checked").attr('value') != undefined; 
+  var afwijstChecked = $("input[name='afwijst']:checked").attr('value') != undefined;
+  var commercieelChecked = $("input[name='commercieel']:checked").attr('value') != undefined;
+  var backofficeChecked = $("input[name='backoffice']:checked").attr('value') != undefined;
   var done = gesprekChecked && aanneemtChecked && afwijstChecked && commercieelChecked && backofficeChecked; 
   return done;
 }
