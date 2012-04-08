@@ -80,7 +80,13 @@ public class Application extends Controller {
         render();
     }
 
-    public static void thanks() {
+    public static void thanks(int gesprek, int aanneemt, int afwijst, int commercieel, int backoffice) {
+        Logger.info("extraQuestions values: ");
+        Logger.info("gesprek = " + gesprek);
+        Logger.info("aanneemt = " + aanneemt);
+        Logger.info("afwijst = " + afwijst);
+        Logger.info("commercieel = " + commercieel);
+        Logger.info("backoffice = " + backoffice);
         render();
     }
 
