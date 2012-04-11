@@ -49,6 +49,10 @@
 </html>
 
 <script type="text/javascript">
+  if (console === undefined) {
+    console = { log : function(){} };
+  }
+
   $('#job_opening_read').click(function() {
     var checked = $(this).is(":checked");
     if (checked) {
