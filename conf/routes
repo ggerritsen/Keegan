@@ -20,5 +20,8 @@ POST    /interview/assessment                   Application.postAssessmentData
 GET     /extraQuestions                         Application.extraQuestions
 POST    /bedankt                                Application.thanks
 
+# Administration
+GET     /data/all                               Application.showAllData
+
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

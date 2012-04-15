@@ -226,4 +226,25 @@ public class ResearchSubject extends Model implements Serializable {
     public String getVideoType() {
         return videoType;
     }
+
+    @Override
+    public String toString() {
+        return "ResearchSubject{" +
+                "ppCode='" + ppCode + '\'' +
+                ", videoType='" + videoType + '\'' +
+                ", extraQuestions=" + extraQuestions +
+                ", intelligentie=" + intelligentie +
+                ", commercieelInzicht=" + commercieelInzicht +
+                ", verkoopVaardigheden=" + verkoopVaardigheden +
+                ", onderhandelen=" + onderhandelen +
+                ", klantGerichtheid=" + klantGerichtheid +
+                ", mondelingCommuniceren=" + mondelingCommuniceren +
+                ", openheid=" + openheid +
+                ", conscientieusheid=" + conscientieusheid +
+                ", extraversie=" + extraversie +
+                ", aangenaamheid=" + aangenaamheid +
+                ", emotioneleStabiliteit=" + emotioneleStabiliteit +
+                ", eerlijkheid=" + eerlijkheid +
+                '}';
+    }
 }

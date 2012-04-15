@@ -1,5 +1,11 @@
 package controllers;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+
 import models.Assessment;
 import models.ExtraQuestions;
 import models.ResearchSubject;
@@ -98,6 +104,27 @@ public class Application extends Controller {
         subject.save();
         
         render();
+    }
+
+    // admin
+    public static void showAllData() throws IOException {
+        List<ResearchSubject> subjects = ResearchSubject.all().fetch();
+        StringBuilder builder = new StringBuilder();
+        for (ResearchSubject subject : subjects) {
+            builder.append(subject);
+            builder.append("\n");
+        }
+
+        BufferedWriter out = null;
+        try {
+            File file = File.createTempFile("data", "csv");
+            out = new BufferedWriter(new FileWriter(file));
+            out.write(builder.toString());
+            file.deleteOnExit();
+            renderBinary(file, "data.csv");
+        } finally {
+            out.close();
+        }
     }
 
     private static void storeVideoType(String videoType) {
