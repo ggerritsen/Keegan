@@ -39,7 +39,7 @@ public class CsvFormatter {
             builder.append(header);
         }
         String result = builder.toString();
-        result.replaceFirst(VALUE_SEPARATOR, "");
+        result = result.replaceFirst(VALUE_SEPARATOR, "");
 
         COLUMNS = result;
     }

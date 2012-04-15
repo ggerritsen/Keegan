@@ -41,7 +41,12 @@ public class CsvFormatterTest extends UnitTest {
 
         String result = formatter.format(subjects);
 
-        assertEquals(headers() + NEWLINE + asCsv(subject1) + NEWLINE + asCsv(subject2), result);
+        assertThat(result, is(headers() + NEWLINE + asCsv(subject1) + NEWLINE + asCsv(subject2)));
+    }
+
+    @Test
+    public void headersStartWithId() throws Exception {
+        assertThat(headers().substring(0,2), is("id"));
     }
 
     private String asCsv(ResearchSubject subject) {
@@ -84,9 +89,7 @@ public class CsvFormatterTest extends UnitTest {
             builder.append(header);
         }
         String result = builder.toString();
-        result.replaceFirst(VALUE_SEPARATOR, "");
-
-        return result;
+        return result.replaceFirst(VALUE_SEPARATOR, "");
     }
 
     private ResearchSubject sampleResearchSubjectWithIdentifier(int identifier) {
