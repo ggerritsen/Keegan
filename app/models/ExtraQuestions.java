@@ -16,48 +16,54 @@ public class ExtraQuestions implements Serializable {
         return tweedeGesprek;
     }
 
-    public void setTweedeGesprek(int tweedeGesprek) {
+    public ExtraQuestions setTweedeGesprek(int tweedeGesprek) {
         this.tweedeGesprek = tweedeGesprek;
+        return this;
     }
 
     public int getAanneemt() {
         return aanneemt;
     }
 
-    public void setAanneemt(int aanneemt) {
+    public ExtraQuestions setAanneemt(int aanneemt) {
         this.aanneemt = aanneemt;
+        return this;
     }
 
     public int getAfwijst() {
         return afwijst;
     }
 
-    public void setAfwijst(int afwijst) {
+    public ExtraQuestions setAfwijst(int afwijst) {
         this.afwijst = afwijst;
+        return this;
     }
 
     public int getCommercieel() {
         return commercieel;
     }
 
-    public void setCommercieel(int commercieel) {
+    public ExtraQuestions setCommercieel(int commercieel) {
         this.commercieel = commercieel;
+        return this;
     }
 
     public int getBackOffice() {
         return backOffice;
     }
 
-    public void setBackOffice(int backOffice) {
+    public ExtraQuestions setBackOffice(int backOffice) {
         this.backOffice = backOffice;
+        return this;
     }
 
     public String getComments() {
         return comments;
     }
 
-    public void setComments(String comments) {
+    public ExtraQuestions setComments(String comments) {
         this.comments = comments;
+        return this;
     }
 
     @Override
