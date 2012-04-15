@@ -11,6 +11,7 @@ import models.ExtraQuestions;
 import models.ResearchSubject;
 import play.Logger;
 import play.mvc.Controller;
+import util.CsvFormatter;
 
 public class Application extends Controller {
 
@@ -21,6 +22,7 @@ public class Application extends Controller {
     private static final String VIDEO_ID_V1 = "IFweETB-wMA";
     private static final String VIDEO_ID_M0 = "nmXXjkLXOD0";
     private static final String VIDEO_ID_M1 = "RfV8bucC7XA";
+    private static final CsvFormatter formatter = new CsvFormatter();
 
     public static void index() {
         render();
@@ -109,17 +111,14 @@ public class Application extends Controller {
     // admin
     public static void showAllData() throws IOException {
         List<ResearchSubject> subjects = ResearchSubject.all().fetch();
-        StringBuilder builder = new StringBuilder();
-        for (ResearchSubject subject : subjects) {
-            builder.append(subject);
-            builder.append("\n");
-        }
+        Logger.info("returning data for %d subjects in csv format", subjects.size());
+        String csvData = formatter.format(subjects);
 
         BufferedWriter out = null;
         try {
-            File file = File.createTempFile("data", "csv");
+            File file = File.createTempFile("temp_data", "csv");
             out = new BufferedWriter(new FileWriter(file));
-            out.write(builder.toString());
+            out.write(csvData);
             file.deleteOnExit();
             renderBinary(file, "data.csv");
         } finally {
