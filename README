@@ -3,3 +3,4 @@ First commit
 - start local postgres with: 'postgres -D /usr/local/var/postgres/'
 - use 'export DATABASE_URL=postgres://localhost/keegan' for using a local postgres db
 - use 'heroku db:pull mysql://root:[pwd]@localhost/keegan_prod --confirm onderzoek-gent' to export prod db to local db
+- use 'heroku info' to see how big the database is
