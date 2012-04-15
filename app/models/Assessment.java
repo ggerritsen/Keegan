@@ -7,7 +7,7 @@ import javax.persistence.Embeddable;
 public class Assessment implements Serializable {
 
     private int assessmentOrder;
-    private int value;
+    private int score;
     private double time;
 
     public int getAssessmentOrder() {
@@ -19,12 +19,12 @@ public class Assessment implements Serializable {
         return this;
     }
 
-    public int getValue() {
-        return value;
+    public int getScore() {
+        return score;
     }
 
-    public Assessment setValue(int value) {
-        this.value = value;
+    public Assessment setScore(int score) {
+        this.score = score;
         return this;
     }
 
@@ -41,7 +41,7 @@ public class Assessment implements Serializable {
     public String toString() {
         return "Assessment{" +
                 "assessmentOrder=" + assessmentOrder +
-                ", value=" + value +
+                ", score=" + score +
                 ", time=" + time +
                 '}';
     }

@@ -78,7 +78,7 @@ public class ResearchSubject extends Model implements Serializable {
     @Embedded
     @AttributeOverrides({
         @AttributeOverride(name = "assessmentOrder", column = @Column(name = "intelligentie_Bvolgorde")),
-        @AttributeOverride(name = "value", column = @Column(name = "intelligentie_score")),
+        @AttributeOverride(name = "score", column = @Column(name = "intelligentie_score")),
         @AttributeOverride(name = "time", column = @Column(name = "intelligentie_Vtijd"))
     })
     private Assessment intelligentie = new Assessment();
@@ -86,7 +86,7 @@ public class ResearchSubject extends Model implements Serializable {
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "assessmentOrder", column = @Column(name = "commercieelInzicht_Bvolgorde")),
-            @AttributeOverride(name = "value", column = @Column(name = "commercieelInzicht_score")),
+            @AttributeOverride(name = "score", column = @Column(name = "commercieelInzicht_score")),
             @AttributeOverride(name = "time", column = @Column(name = "commercieelInzicht_Vtijd"))
     })
     private Assessment commercieelInzicht = new Assessment();
@@ -94,7 +94,7 @@ public class ResearchSubject extends Model implements Serializable {
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "assessmentOrder", column = @Column(name = "verkoopVaardigheden_Bvolgorde")),
-            @AttributeOverride(name = "value", column = @Column(name = "verkoopVaardigheden_score")),
+            @AttributeOverride(name = "score", column = @Column(name = "verkoopVaardigheden_score")),
             @AttributeOverride(name = "time", column = @Column(name = "verkoopVaardigheden_Vtijd"))
     })
     private Assessment verkoopVaardigheden = new Assessment();
@@ -102,7 +102,7 @@ public class ResearchSubject extends Model implements Serializable {
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "assessmentOrder", column = @Column(name = "onderhandelen_Bvolgorde")),
-            @AttributeOverride(name = "value", column = @Column(name = "onderhandelen_score")),
+            @AttributeOverride(name = "score", column = @Column(name = "onderhandelen_score")),
             @AttributeOverride(name = "time", column = @Column(name = "onderhandelen_Vtijd"))
     })
     private Assessment onderhandelen = new Assessment();
@@ -110,7 +110,7 @@ public class ResearchSubject extends Model implements Serializable {
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "assessmentOrder", column = @Column(name = "klantGerichtheid_Bvolgorde")),
-            @AttributeOverride(name = "value", column = @Column(name = "klantGerichtheid_score")),
+            @AttributeOverride(name = "score", column = @Column(name = "klantGerichtheid_score")),
             @AttributeOverride(name = "time", column = @Column(name = "klantGerichtheid_Vtijd"))
     })
     private Assessment klantGerichtheid = new Assessment();
@@ -118,7 +118,7 @@ public class ResearchSubject extends Model implements Serializable {
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "assessmentOrder", column = @Column(name = "mondelingCommuniceren_Bvolgorde")),
-            @AttributeOverride(name = "value", column = @Column(name = "mondelingCommuniceren_score")),
+            @AttributeOverride(name = "score", column = @Column(name = "mondelingCommuniceren_score")),
             @AttributeOverride(name = "time", column = @Column(name = "mondelingCommuniceren_Vtijd"))
     })
     private Assessment mondelingCommuniceren = new Assessment();
@@ -126,7 +126,7 @@ public class ResearchSubject extends Model implements Serializable {
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "assessmentOrder", column = @Column(name = "openheid_Bvolgorde")),
-            @AttributeOverride(name = "value", column = @Column(name = "openheid_score")),
+            @AttributeOverride(name = "score", column = @Column(name = "openheid_score")),
             @AttributeOverride(name = "time", column = @Column(name = "openheid_Vtijd"))
     })
     private Assessment openheid = new Assessment();
@@ -134,7 +134,7 @@ public class ResearchSubject extends Model implements Serializable {
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "assessmentOrder", column = @Column(name = "conscientieusheid_Bvolgorde")),
-            @AttributeOverride(name = "value", column = @Column(name = "conscientieusheid_score")),
+            @AttributeOverride(name = "score", column = @Column(name = "conscientieusheid_score")),
             @AttributeOverride(name = "time", column = @Column(name = "conscientieusheid_Vtijd"))
     })
     private Assessment conscientieusheid = new Assessment();
@@ -142,7 +142,7 @@ public class ResearchSubject extends Model implements Serializable {
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "assessmentOrder", column = @Column(name = "extraversie_Bvolgorde")),
-            @AttributeOverride(name = "value", column = @Column(name = "extraversie_score")),
+            @AttributeOverride(name = "score", column = @Column(name = "extraversie_score")),
             @AttributeOverride(name = "time", column = @Column(name = "extraversie_Vtijd"))
     })
     private Assessment extraversie = new Assessment();
@@ -150,7 +150,7 @@ public class ResearchSubject extends Model implements Serializable {
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "assessmentOrder", column = @Column(name = "aangenaamheid_Bvolgorde")),
-            @AttributeOverride(name = "value", column = @Column(name = "aangenaamheid_score")),
+            @AttributeOverride(name = "score", column = @Column(name = "aangenaamheid_score")),
             @AttributeOverride(name = "time", column = @Column(name = "aangenaamheid_Vtijd"))
     })
     private Assessment aangenaamheid = new Assessment();
@@ -158,7 +158,7 @@ public class ResearchSubject extends Model implements Serializable {
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "assessmentOrder", column = @Column(name = "emotioneleStabiliteit_Bvolgorde")),
-            @AttributeOverride(name = "value", column = @Column(name = "emotioneleStabiliteit_score")),
+            @AttributeOverride(name = "score", column = @Column(name = "emotioneleStabiliteit_score")),
             @AttributeOverride(name = "time", column = @Column(name = "emotioneleStabiliteit_Vtijd"))
     })
     private Assessment emotioneleStabiliteit = new Assessment();
@@ -166,7 +166,7 @@ public class ResearchSubject extends Model implements Serializable {
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "assessmentOrder", column = @Column(name = "eerlijkheid_Bvolgorde")),
-            @AttributeOverride(name = "value", column = @Column(name = "eerlijkheid_score")),
+            @AttributeOverride(name = "score", column = @Column(name = "eerlijkheid_score")),
             @AttributeOverride(name = "time", column = @Column(name = "eerlijkheid_Vtijd"))
     })
     private Assessment eerlijkheid = new Assessment();

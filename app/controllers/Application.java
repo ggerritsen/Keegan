@@ -74,7 +74,7 @@ public class Application extends Controller {
         ResearchSubject subject = ResearchSubject.findById(Long.valueOf(subjectId));
         Assessment assessment = subject.getAssessmentWithLabel(scaleLabel);
 
-        assessment.setTime(time).setValue(value);
+        assessment.setTime(time).setScore(value);
         assessment.setAssessmentOrder(subject.getNextInOrder());
 
         subject.save();
