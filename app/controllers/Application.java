@@ -110,6 +110,7 @@ public class Application extends Controller {
 
     // admin
     public static void showAllData() throws IOException {
+        Logger.info("Fetching all researchSubjects");
         List<ResearchSubject> subjects = ResearchSubject.all().fetch();
         Logger.info("returning data for %d subjects in csv format", subjects.size());
         String csvData = formatter.format(subjects);
